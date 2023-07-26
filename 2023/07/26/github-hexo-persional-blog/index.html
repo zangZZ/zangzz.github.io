@@ -18,9 +18,8 @@
 <meta property="og:image" content="https://zangzz.github.io/2023/07/26/github-hexo-persional-blog/image-2.png">
 <meta property="og:image" content="https://zangzz.github.io/2023/07/26/github-hexo-persional-blog/image-3.png">
 <meta property="og:image" content="https://zangzz.github.io/2023/07/26/github-hexo-persional-blog/image-4.png">
-<meta property="og:image" content="https://zangzz.github.io/image.jpg#id=xN2kh&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=">
 <meta property="article:published_time" content="2023-07-26T06:39:53.000Z">
-<meta property="article:modified_time" content="2023-07-26T06:45:27.751Z">
+<meta property="article:modified_time" content="2023-07-26T06:52:50.148Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="github pages">
@@ -152,7 +151,7 @@
 <p>文件编辑完成后执行<code>hexo g</code>命令编译，然后使用<code>hexo d</code>命令推送到github仓库<br>或者可以直接使用 <code>hexo g -d</code>生成页面并部署</p>
 <h2 id="使用建议"><a href="#使用建议" class="headerlink" title="使用建议"></a>使用建议</h2><h3 id="怎么在md中插入图片"><a href="#怎么在md中插入图片" class="headerlink" title="怎么在md中插入图片"></a>怎么在md中插入图片</h3><p>使用 <code>npm install hexo-renderer-marked</code> 安装hexo-renderer-marked插件<br>然后修改**_config.yml **文件</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">post<span class="emphasis">_asset_</span>folder: true</span><br><span class="line">marked:</span><br><span class="line">  prependRoot: true</span><br><span class="line">  postAsset: true</span><br></pre></td></tr></table></figure>
-<p>完成以上步骤后，我们使用 <code>hexo new xxx</code>命令的时候就会在source目录同时生成一个和md文件同名的文件夹，只需要把使用到的图片放到该文件夹里，然后在编辑md文件的时候使用 <img src="/image.jpg#id=xN2kh&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title="><code>![](image.png)</code>插入图片即可。</p>
+<p>完成以上步骤后，我们使用 <code>hexo new xxx</code>命令的时候就会在source目录同时生成一个和md文件同名的文件夹，只需要把使用到的图片放到该文件夹里，然后在编辑md文件的时候使用<code>![](image.png)</code>插入图片即可。</p>
 <h2 id="md编辑器"><a href="#md编辑器" class="headerlink" title="md编辑器"></a>md编辑器</h2><p>Typora<br>好用，只是现在不免费了<br>VsCode<br>宇宙第一编辑器，干啥都行<br>语雀<br>好用，先在语雀内编辑文章，然后导出为markdown文件，不仅有云存档而且文章内使用的图片会有一个线上的链接，这样就没有上面说的那个问题了。</p>
 <h2 id="关于Hexo"><a href="#关于Hexo" class="headerlink" title="关于Hexo"></a>关于Hexo</h2><p>Hexo有很多插件和主题，大家有兴趣的可以自己折腾折腾，打造一个自己与众不同的小站。</p>
 <p>参考链接：<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/60578464">https://zhuanlan.zhihu.com/p/60578464</a><br><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a><br><a target="_blank" rel="noopener" href="https://docs.github.com/zh/pages/quickstart">https://docs.github.com/zh/pages/quickstart</a></p>
