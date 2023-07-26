@@ -124,6 +124,53 @@
 
 
   
+    <article id="post-target-source-combina" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/07/26/target-source-combina/" class="article-date">
+  <time class="dt-published" datetime="2023-07-26T02:37:57.000Z" itemprop="datePublished">2023-07-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/07/26/target-source-combina/">target-source-combina</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="插件式（pf4j）"><a href="#插件式（pf4j）" class="headerlink" title="插件式（pf4j）"></a>插件式（pf4j）</h2><p>结构如下<br>source api: 首先定义好source api（interface），打包，用于后续主工程和plugin工程引入依赖<br>plugins: 引入source api依赖，使用接口，在实现类上打上指定注解用于自动发现<br>main progress: 引入pf4j框架和source api依赖，可以热加载plugin Jar包，调用指定方法执行plugin的实现</p>
+<p>优点：热加载jar包；完全的解耦；自由度极高；内部调用soure api；<br>缺点：需要手动维护数据库连接和服务bean（对于用惯了spring框架的我们来说稍显繁琐）</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/430932/1688370823248-7a2adb17-7ca5-4498-b576-c8b911fe416d.png#averageHue=%235e5e5e&clientId=u31c2076c-58ac-4&from=paste&height=241&id=u35b4426a&originHeight=301&originWidth=461&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=19493&status=done&style=none&taskId=u0e610618-bb7c-4377-8ae2-ea9a869edfd&title=&width=368.8" alt="pf4j.png"></p>
+<h2 id="sdk式"><a href="#sdk式" class="headerlink" title="sdk式"></a>sdk式</h2><p>结构如下<br>source lib：定义了source api， 引入plugin lib的实现，用于被主程序调用，可以帮助controller和具体的source 实现解耦<br>plugin lib：source api的实现，spring框架（类似common-lib）<br>main progress：引入source lib，通过spring管理source api的实现</p>
+<p>优点：半解耦；plugin中可以使用spring管理bean；内部调用source api；<br>缺点：仍然需要手动维护数据库连接（因为不同的plugin可能使用不同地址的同类型数据库）；可能发生bean冲突（plugin之间可能定义重复bean）;<br><img src="https://cdn.nlark.com/yuque/0/2023/png/430932/1688371456740-9cb430a7-44a7-4832-ae40-979768f17fad.png#averageHue=%23474747&clientId=u31c2076c-58ac-4&from=paste&height=281&id=u6863ab33&originHeight=281&originWidth=266&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=14233&status=done&style=none&taskId=ubb5f08c8-ab08-42e6-afd3-d8a690d05da&title=&width=266" alt="sdk.png"></p>
+<h2 id="服务接口式（就地取材）"><a href="#服务接口式（就地取材）" class="headerlink" title="服务接口式（就地取材）"></a>服务接口式（就地取材）</h2><p>认为source api均来自于注册到nacos上的某个服务，在主程序配置文件中添加source type和source service的映射列表。</p>
+<p>优点：简单（在任意服务上利用现成的代码可以很轻松的添加一个source api接口）；<br>缺点：系统耦合度偏高；source api调用跨服务；</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/07/26/target-source-combina/" data-id="clkjbv83c0000akubbop8ec0z" data-title="target-source-combina" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/a/" rel="tag">a</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/b/" rel="tag">b</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-test8" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/07/25/test8/" class="article-date">
@@ -407,9 +454,23 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/a/" rel="tag">a</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/b/" rel="tag">b</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/a/" style="font-size: 10px;">a</a> <a href="/tags/b/" style="font-size: 10px;">b</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
@@ -432,6 +493,10 @@
           </li>
         
           <li>
+            <a href="/2023/07/26/target-source-combina/">target-source-combina</a>
+          </li>
+        
+          <li>
             <a href="/2023/07/25/test8/">test8</a>
           </li>
         
@@ -441,10 +506,6 @@
         
           <li>
             <a href="/2023/07/25/test5/">test5</a>
-          </li>
-        
-          <li>
-            <a href="/2023/07/25/test4/">test4</a>
           </li>
         
       </ul>

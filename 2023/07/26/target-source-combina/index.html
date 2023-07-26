@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>target-source-combina | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="插件式（pf4j）结构如下source api: 首先定义好source api（interface），打包，用于后续主工程和plugin工程引入依赖plugins: 引入source api依赖，使用接口，在实现类上打上指定注解用于自动发现main progress: 引入pf4j框架和source api依赖，可以热加载plugin Jar包，调用指定方法执行plugin的实现 优点：热加载j">
+<meta property="og:type" content="article">
+<meta property="og:title" content="target-source-combina">
+<meta property="og:url" content="http://example.com/2023/07/26/target-source-combina/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="插件式（pf4j）结构如下source api: 首先定义好source api（interface），打包，用于后续主工程和plugin工程引入依赖plugins: 引入source api依赖，使用接口，在实现类上打上指定注解用于自动发现main progress: 引入pf4j框架和source api依赖，可以热加载plugin Jar包，调用指定方法执行plugin的实现 优点：热加载j">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/430932/1688370823248-7a2adb17-7ca5-4498-b576-c8b911fe416d.png#averageHue=%235e5e5e&clientId=u31c2076c-58ac-4&from=paste&height=241&id=u35b4426a&originHeight=301&originWidth=461&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=19493&status=done&style=none&taskId=u0e610618-bb7c-4377-8ae2-ea9a869edfd&title=&width=368.8">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/430932/1688371456740-9cb430a7-44a7-4832-ae40-979768f17fad.png#averageHue=%23474747&clientId=u31c2076c-58ac-4&from=paste&height=281&id=u6863ab33&originHeight=281&originWidth=266&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=14233&status=done&style=none&taskId=ubb5f08c8-ab08-42e6-afd3-d8a690d05da&title=&width=266">
+<meta property="article:published_time" content="2023-07-26T02:37:57.000Z">
+<meta property="article:modified_time" content="2023-07-26T06:10:20.246Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="a">
+<meta property="article:tag" content="b">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2023/png/430932/1688370823248-7a2adb17-7ca5-4498-b576-c8b911fe416d.png#averageHue=%235e5e5e&clientId=u31c2076c-58ac-4&from=paste&height=241&id=u35b4426a&originHeight=301&originWidth=461&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=19493&status=done&style=none&taskId=u0e610618-bb7c-4377-8ae2-ea9a869edfd&title=&width=368.8">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-target-source-combina" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/07/26/target-source-combina/" class="article-date">
+  <time class="dt-published" datetime="2023-07-26T02:37:57.000Z" itemprop="datePublished">2023-07-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      target-source-combina
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="插件式（pf4j）"><a href="#插件式（pf4j）" class="headerlink" title="插件式（pf4j）"></a>插件式（pf4j）</h2><p>结构如下<br>source api: 首先定义好source api（interface），打包，用于后续主工程和plugin工程引入依赖<br>plugins: 引入source api依赖，使用接口，在实现类上打上指定注解用于自动发现<br>main progress: 引入pf4j框架和source api依赖，可以热加载plugin Jar包，调用指定方法执行plugin的实现</p>
+<p>优点：热加载jar包；完全的解耦；自由度极高；内部调用soure api；<br>缺点：需要手动维护数据库连接和服务bean（对于用惯了spring框架的我们来说稍显繁琐）</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/430932/1688370823248-7a2adb17-7ca5-4498-b576-c8b911fe416d.png#averageHue=%235e5e5e&clientId=u31c2076c-58ac-4&from=paste&height=241&id=u35b4426a&originHeight=301&originWidth=461&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=19493&status=done&style=none&taskId=u0e610618-bb7c-4377-8ae2-ea9a869edfd&title=&width=368.8" alt="pf4j.png"></p>
+<h2 id="sdk式"><a href="#sdk式" class="headerlink" title="sdk式"></a>sdk式</h2><p>结构如下<br>source lib：定义了source api， 引入plugin lib的实现，用于被主程序调用，可以帮助controller和具体的source 实现解耦<br>plugin lib：source api的实现，spring框架（类似common-lib）<br>main progress：引入source lib，通过spring管理source api的实现</p>
+<p>优点：半解耦；plugin中可以使用spring管理bean；内部调用source api；<br>缺点：仍然需要手动维护数据库连接（因为不同的plugin可能使用不同地址的同类型数据库）；可能发生bean冲突（plugin之间可能定义重复bean）;<br><img src="https://cdn.nlark.com/yuque/0/2023/png/430932/1688371456740-9cb430a7-44a7-4832-ae40-979768f17fad.png#averageHue=%23474747&clientId=u31c2076c-58ac-4&from=paste&height=281&id=u6863ab33&originHeight=281&originWidth=266&originalType=binary&ratio=1.25&rotation=0&showTitle=false&size=14233&status=done&style=none&taskId=ubb5f08c8-ab08-42e6-afd3-d8a690d05da&title=&width=266" alt="sdk.png"></p>
+<h2 id="服务接口式（就地取材）"><a href="#服务接口式（就地取材）" class="headerlink" title="服务接口式（就地取材）"></a>服务接口式（就地取材）</h2><p>认为source api均来自于注册到nacos上的某个服务，在主程序配置文件中添加source type和source service的映射列表。</p>
+<p>优点：简单（在任意服务上利用现成的代码可以很轻松的添加一个source api接口）；<br>缺点：系统耦合度偏高；source api调用跨服务；</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/07/26/target-source-combina/" data-id="clkjbv83c0000akubbop8ec0z" data-title="target-source-combina" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/a/" rel="tag">a</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/b/" rel="tag">b</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/07/26/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/07/25/test8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">test8</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/a/" rel="tag">a</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/b/" rel="tag">b</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/a/" style="font-size: 10px;">a</a> <a href="/tags/b/" style="font-size: 10px;">b</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/07/26/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/26/target-source-combina/">target-source-combina</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/25/test8/">test8</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/25/test6/">test6</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/25/test5/">test5</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
